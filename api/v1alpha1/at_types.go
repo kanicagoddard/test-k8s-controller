@@ -29,13 +29,15 @@ type AtSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of At. Edit at_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Schedule string `json:"schedule,omitempty"`
+	Command  string `json:"command,omitempty"`
 }
 
 // AtStatus defines the observed state of At
 type AtStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	Phase string `json:"phase,omitempty"`
 }
 
 //+kubebuilder:object:root=true
@@ -58,6 +60,12 @@ type AtList struct {
 	metav1.ListMeta `json:"metadata,omitempty"`
 	Items           []At `json:"items"`
 }
+
+const (
+	PhasePending = "PENDING"
+	PhaseRunning = "RUNNING"
+	PhaseDone    = "DONE"
+)
 
 func init() {
 	SchemeBuilder.Register(&At{}, &AtList{})
