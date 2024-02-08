@@ -1,0 +1,12 @@
+apiVersion: cnat.kanicagoddard.dev/v1alpha1
+kind: At
+metadata:
+  labels:
+    app.kubernetes.io/name: at
+    app.kubernetes.io/instance: at-sample
+    app.kubernetes.io/part-of: test-k8s-controller
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: test-k8s-controller
+  name: at-sample
+spec:
+  # TODO(user): Add fields here
